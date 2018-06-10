@@ -1,0 +1,87 @@
+/**
+* Reset
+*/
+
+a,
+article,
+aside,
+audio,
+big,
+body,
+canvas,
+dd,
+div,
+dl,
+dt,
+em,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+img,
+label,
+li,
+mark,
+nav,
+ol,
+p,
+section,
+small,
+span,
+strong,
+time,
+tt,
+ul {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: top;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td, {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media print {
+  .not-print {
+    opacity: 0
+  }
+}
