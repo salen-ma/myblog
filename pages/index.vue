@@ -3,9 +3,11 @@
     <ul>
       <li v-for="(item, index) in list" :key="index">
         <nuxt-link class="title" :to="'/md/' + item.id" tag="h3">{{item.title}}</nuxt-link>
+        <no-ssr>
         <div class="tags">
-          <span v-for="(tag, index) in item.tags" :key="index">{{tag}}</span>
+          <Tag v-for="(tag, index) in item.tags" :key="index" type="border">{{tag}}</Tag>
         </div>
+        </no-ssr>
         <p class="summary">{{item.summary}}</p>
       </li>
     </ul>
@@ -50,11 +52,6 @@ export default {
       .summary {
         font-size: 14px;
         color: #999;
-      }
-
-      span {
-        display: inline-block;
-        margin: 5px;
       }
     }
   }

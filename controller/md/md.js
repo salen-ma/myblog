@@ -27,9 +27,7 @@ class Markdown {
       path: "E:/myblog/static/md/" + now + ".md"
     });
   }
-
-  updateMd() {}
-
+  
   deleteMd() {}
 
   readFile(dir) {

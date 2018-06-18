@@ -2,8 +2,8 @@
 
 export default {
   database: 'blog',
-  username: 'www',
-  password: 'www',
+  username: 'salen_ma',
+  password: 'm12170226',
   host: 'localhost',
   port: 3306,
 };
