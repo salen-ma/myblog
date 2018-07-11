@@ -35,6 +35,7 @@ export default {
         if (valid) {
           this.createTag()
           this.$Message.success("Success!")
+          this.$refs[name].resetFields()
         } else {
           this.$Message.error("Fail!")
         }

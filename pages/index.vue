@@ -1,14 +1,14 @@
 <template>
   <section class="container">
     <ul>
-      <li v-for="(item, index) in list" :key="index">
+      <li v-for="item in list" :key="item.id">
         <nuxt-link class="title" :to="'/md/' + item.id" tag="h3">{{item.title}}</nuxt-link>
+        <p class="summary">{{item.summary}}</p>
         <no-ssr>
         <div class="tags">
-          <Tag v-for="(tag, index) in item.tags" :key="index" type="border">{{tag}}</Tag>
+          <Tag v-for="tag in item.tags" :key="tag.id" type="border">{{tag.name}}</Tag>
         </div>
         </no-ssr>
-        <p class="summary">{{item.summary}}</p>
       </li>
     </ul>
   </section>
@@ -34,12 +34,10 @@ export default {
     width: 50%;
     padding: 20px;
     li {
+      position: relative;
       padding: 30px 0px;
       border-bottom: 1px solid rgba(0,0,0,0.1);
       cursor: pointer;
-      &:first-of-type {
-        border-top: 1px solid rgba(0,0,0,0.1);
-      }
 
       .title {
         font-size: 20px;
@@ -47,6 +45,12 @@ export default {
         &:hover {
           text-decoration: underline;
         }
+      }
+
+      .tags {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
       }
 
       .summary {

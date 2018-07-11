@@ -31,6 +31,16 @@ class Tag {
       }
     });
   }
+
+  async getTags(req, res, next) {
+    console.log("get tags")
+    let tags = await TagModel.findAll()
+    res.send({ tags: tags })
+  }
+
+  getTagById(id) {
+    return TagModel.findById(id, {raw: true})
+  }
 }
 
 export default new Tag();

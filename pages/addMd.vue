@@ -11,10 +11,7 @@
       </FormItem>
       <FormItem label="标签" prop="tags">
         <CheckboxGroup v-model="formValidate.tags">
-          <Checkbox label="Nuxt"></Checkbox>
-          <Checkbox label="Node"></Checkbox>
-          <Checkbox label="Express"></Checkbox>
-          <Checkbox label="Mysql"></Checkbox>
+          <Checkbox v-for="tagItem in tagList" :key="tagItem.id" :label="tagItem.id">{{tagItem.name}}</Checkbox>
         </CheckboxGroup>
       </FormItem>
       <FormItem>
@@ -28,7 +25,16 @@
 
 <script>
 import { createMd } from "~/api/md.js"
+import { getTags } from "~/api/tag.js"
+
 export default {
+  async asyncData({ params, error }) {
+    let res = await getTags();
+    if (res.status === 200) {
+      return { tagList: res.data.tags };
+    }
+  },
+  
   data() {
     return {
       formValidate: {
@@ -45,12 +51,18 @@ export default {
       },
     }
   },
+
+  mounted() {
+    console.log(this.tagList)
+  },
+
   methods: {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
           this.createMd()
           this.$Message.success("Success!")
+          this.handleReset(name)
         } else {
           this.$Message.error("Fail!")
         }
