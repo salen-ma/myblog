@@ -1,8 +1,11 @@
 import axios from "axios"
 import qs from "qs"
+import config from "~/config"
 
 axios.defaults.withCredentials = true
-const service = axios.create({})
+const service = axios.create({
+  baseURL: config.apiHost + ':' + config.apiPort
+})
 
 // request拦截器
 service.interceptors.request.use(
