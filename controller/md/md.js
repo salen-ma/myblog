@@ -28,7 +28,9 @@ class Markdown {
     })
   }
 
-  deleteMd() {}
+  deleteMd() {
+    
+  }
 
   readFile(dir) {
     return new Promise((resolve, reject) => {
