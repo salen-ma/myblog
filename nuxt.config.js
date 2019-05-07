@@ -45,4 +45,7 @@ module.exports = {
     'iview/dist/styles/iview.css',
   ],
   loading: '~/components/loading.vue',
+  router: {
+    base: '/blog/'
+  },
 }
